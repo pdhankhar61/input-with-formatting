@@ -122,6 +122,7 @@ function App() {
           type="text"
           name="format"
           id="format"
+          inputMode="numeric"
           onChange={handleChange}
           onBlur={(e) => {
             const value = e.target.value;
