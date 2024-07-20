@@ -1,0 +1,33 @@
+main {
+  display: flex;
+  flex-direction: column;
+  margin: 20px auto;
+  gap: 10px;
+  width: fit-content;
+}
+
+.locale-currency {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input_container,
+.currency_container,
+.locale_container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.locale-currency label,
+.input_container label {
+  font-size: 1.6rem;
+}
+
+.input_container input {
+  height: 40px;
+  border: 1px solid #ccc;
+  padding-inline: 10px;
+  border-radius: 4px;
+  font-size: 2rem;
+}
