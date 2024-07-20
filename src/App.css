@@ -9,6 +9,15 @@ main {
 .locale-currency {
   display: flex;
   justify-content: space-between;
+  gap: 20px;
+}
+
+.currency_container select,
+.locale_container select {
+  height: 40px;
+  font-size: 2rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .input_container,
