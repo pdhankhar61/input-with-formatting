@@ -1,4 +1,4 @@
-import { ChangeEvent, useCallback, useState } from "react";
+import { ChangeEvent, FocusEvent, useCallback, useState } from "react";
 import "./App.css";
 
 const locales: { [x: string]: string } = {
@@ -76,6 +76,19 @@ function App() {
     }
   }
 
+  function handleBlur(e: FocusEvent<HTMLInputElement, Element>) {
+    const value = e.target.value;
+    if (value === "") {
+      return undefined;
+    }
+    if (value.indexOf(".") >= 0) {
+      const split_array = value.split(".");
+      if (split_array.length === 2 && Number(split_array[1]) === 0) {
+        e.target.value = split_array[0];
+      }
+    }
+  }
+
   return (
     <main>
       <div className="locale-currency">
@@ -124,15 +137,7 @@ function App() {
           id="format"
           inputMode="numeric"
           onChange={handleChange}
-          onBlur={(e) => {
-            const value = e.target.value;
-            if (value === "") {
-              return undefined;
-            }
-            if (value.split(".")[1].length === 0) {
-              e.target.value = value.split(".")[0];
-            }
-          }}
+          onBlur={handleBlur}
         />
       </div>
     </main>
